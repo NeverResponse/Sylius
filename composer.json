@@ -39,6 +39,7 @@
         "jms/serializer-bundle": "^0.13|^1.0",
         "knplabs/knp-gaufrette-bundle": "~0.1",
         "knplabs/knp-menu-bundle": "^2.1",
+        "knplabs/knp-snappy-bundle": "~1.4",
         "liip/imagine-bundle": "~1.0",
         "ocramius/proxy-manager": "^1.0",
         "payum/payum": "~1.3",

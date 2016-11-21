@@ -73,6 +73,7 @@ class Kernel extends HttpKernel
 
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new \Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new \Liip\ImagineBundle\LiipImagineBundle(),
             new \Payum\Bundle\PayumBundle\PayumBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
