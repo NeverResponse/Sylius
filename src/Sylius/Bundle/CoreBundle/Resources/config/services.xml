@@ -109,6 +109,11 @@
             <argument>9999</argument>
         </service>
 
+        <service id="sylius.invoice_renderer.pdf" class="Sylius\Bundle\CoreBundle\Generator\InvoicePdfRenderer">
+            <argument type="service" id="knp_snappy.pdf" />
+            <argument type="service" id="templating" />
+        </service>
+
         <service id="sylius.customer_ip_assigner" class="Sylius\Bundle\CoreBundle\Assigner\CustomerIpAssigner" />
     </services>
 </container>

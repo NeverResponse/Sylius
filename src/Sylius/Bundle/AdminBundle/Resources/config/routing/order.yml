@@ -77,3 +77,9 @@ sylius_admin_order_payment_refund:
                 transition: refund
             redirect: referer
             flash: sylius.order_payment.refunded
+
+sylius_admin_order_invoice:
+    path: /orders/{orderId}/invoice
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.admin.invoice:generateInvoiceAction

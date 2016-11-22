@@ -17,5 +17,10 @@
             <argument type="service" id="sylius.dashboard.statistics_provider" />
             <argument type="service" id="templating" />
         </service>
+
+        <service id="sylius.controller.admin.invoice" class="Sylius\Bundle\AdminBundle\Controller\InvoiceController">
+            <argument type="service" id="sylius.invoice_renderer.pdf" />
+            <argument type="service" id="sylius.repository.order" />
+        </service>
     </services>
 </container>

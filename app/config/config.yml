@@ -57,3 +57,18 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+knp_snappy:
+    pdf:
+        binary: /usr/local/bin/wkhtmltopdf
+        options:
+            footer_left: '[title]'
+            footer_right: '[page]/[topage]'
+            footer_line: true
+            footer_font_name: '"Helvetica Neue",​Helvetica,​Arial,​sans-serif'
+            footer_font_size: 10
+            viewport_size: '1200x1024'
+            margin_top: 10
+            margin_right: 5
+            margin_bottom: 10
+            margin_left: 5
