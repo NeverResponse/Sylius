@@ -39,7 +39,7 @@ final class SlugGeneratorSpec extends ObjectBehavior
     function it_generates_slug_without_punctuation_marks()
     {
         $this->generate('"Ticket to Ride: Europe"')->shouldReturn('ticket-to-ride-europe');
-        $this->generate('Tzolk\'in: The Mayan Calendar')->shouldReturn('tzolk-in-the-mayan-calendar');
+        $this->generate('Tzolk\'in: The Mayan Calendar')->shouldReturn('tzolkin-the-mayan-calendar');
         $this->generate('Game of Thrones: The Board Game')->shouldReturn('game-of-thrones-the-board-game');
     }
 
