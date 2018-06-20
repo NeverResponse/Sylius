@@ -44,13 +44,8 @@ final class ArrayToDefinitionConverter implements ArrayToDefinitionConverterInte
             $configuration['driver']['options']
         );
 
-        if (array_key_exists('sorting', $configuration)) {
-            $grid->setSorting($configuration['sorting']);
-        }
-
-        if (array_key_exists('limits', $configuration)) {
-            $grid->setLimits($configuration['limits']);
-        }
+        $grid->setSorting($configuration['sorting'] ?? []);
+        $grid->setLimits($configuration['limits'] ?? []);
 
         foreach ($configuration['fields'] as $name => $fieldConfiguration) {
             $grid->addField($this->convertField($name, $fieldConfiguration));
@@ -79,32 +74,24 @@ final class ArrayToDefinitionConverter implements ArrayToDefinitionConverterInte
     {
         $field = Field::fromNameAndType($name, $configuration['type']);
 
-        if (array_key_exists('path', $configuration)) {
+        if (isset($configuration['path'])) {
             $field->setPath($configuration['path']);
         }
-        if (array_key_exists('label', $configuration)) {
+        if (isset($configuration['label'])) {
             $field->setLabel($configuration['label']);
         }
-        if (array_key_exists('enabled', $configuration)) {
+        if (isset($configuration['enabled'])) {
             $field->setEnabled($configuration['enabled']);
         }
         if (array_key_exists('sortable', $configuration)) {
-            $sortable = $configuration['sortable'];
-
-            if ($sortable === true || $sortable === null) {
-                $sortable = $name;
-            }
-
-            if ($sortable === false) {
-                $sortable = null;
-            }
+            $sortable = false === $configuration['sortable'] ? null : $name;
 
             $field->setSortable($sortable);
         }
-        if (array_key_exists('position', $configuration)) {
+        if (isset($configuration['position'])) {
             $field->setPosition($configuration['position']);
         }
-        if (array_key_exists('options', $configuration)) {
+        if (isset($configuration['options'])) {
             $field->setOptions($configuration['options']);
         }
 
@@ -121,25 +108,25 @@ final class ArrayToDefinitionConverter implements ArrayToDefinitionConverterInte
     {
         $filter = Filter::fromNameAndType($name, $configuration['type']);
 
-        if (array_key_exists('label', $configuration)) {
+        if (isset($configuration['label'])) {
             $filter->setLabel($configuration['label']);
         }
-        if (array_key_exists('template', $configuration)) {
+        if (isset($configuration['template'])) {
             $filter->setTemplate($configuration['template']);
         }
-        if (array_key_exists('enabled', $configuration)) {
+        if (isset($configuration['enabled'])) {
             $filter->setEnabled($configuration['enabled']);
         }
-        if (array_key_exists('position', $configuration)) {
+        if (isset($configuration['position'])) {
             $filter->setPosition($configuration['position']);
         }
-        if (array_key_exists('options', $configuration)) {
+        if (isset($configuration['options'])) {
             $filter->setOptions($configuration['options']);
         }
-        if (array_key_exists('form_options', $configuration)) {
+        if (isset($configuration['form_options'])) {
             $filter->setFormOptions($configuration['form_options']);
         }
-        if (array_key_exists('default_value', $configuration)) {
+        if (isset($configuration['default_value'])) {
             $filter->setCriteria($configuration['default_value']);
         }
 
@@ -173,19 +160,19 @@ final class ArrayToDefinitionConverter implements ArrayToDefinitionConverterInte
     {
         $action = Action::fromNameAndType($name, $configuration['type']);
 
-        if (array_key_exists('label', $configuration)) {
+        if (isset($configuration['label'])) {
             $action->setLabel($configuration['label']);
         }
-        if (array_key_exists('icon', $configuration)) {
+        if (isset($configuration['icon'])) {
             $action->setIcon($configuration['icon']);
         }
-        if (array_key_exists('enabled', $configuration)) {
+        if (isset($configuration['enabled'])) {
             $action->setEnabled($configuration['enabled']);
         }
-        if (array_key_exists('position', $configuration)) {
+        if (isset($configuration['position'])) {
             $action->setPosition($configuration['position']);
         }
-        if (array_key_exists('options', $configuration)) {
+        if (isset($configuration['options'])) {
             $action->setOptions($configuration['options']);
         }
 
